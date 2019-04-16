@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ProjectVer2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <br>
+    <hr>
+
+    <%= link_to "Users", users_path %>
+    <%= link_to "Sections", sections_path %>
+    <%= link_to "Recent Posts", posts_path %>
+
+    <%= yield %>
+  </body>
+</html>
