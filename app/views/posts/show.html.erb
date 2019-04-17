@@ -1,5 +1,6 @@
 <!-- <div class="post-header"> -->
 
+
 <h2><%= @post.name %></h2>
 <p><%= @post.content %></p>
 
@@ -15,6 +16,16 @@
 
 
     <% @post.replies.each do |reply| %>
+
+    <% if @logged_in %>
+    <%= @post.user.username %>
+    <% if @post.user.username == @logged_in_user.username %>
+    Delete Post
+    <% else %>
+
+    <% end %>
+    <% end %>
+
 
 
     <div class="comment">
@@ -49,7 +60,7 @@
   <%= f.text_field :content %>
   </div>
   <%= f.collection_select(:post_id, Post.all, :id, :name, {:selected => @post.id}) %>
-  <%= f.collection_select(:user_id, User.all, :id, :username) %>
+  <%= f.collection_select(:user_id, User.all, :id, :username, {:selected => @logged_in_user.id}) %>
 <br>
 
   <button class="ui button">

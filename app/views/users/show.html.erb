@@ -1,5 +1,12 @@
 <h1 class="username-header"><%= @user.username %></h1>
 
+<%  if @logged_in %>
+<h2>Welcome <%= @logged_in_user.username %>!</h2>
+<% else %>
+f
+
+<% end %>
+
 
 
 <div class="ui threaded comments">

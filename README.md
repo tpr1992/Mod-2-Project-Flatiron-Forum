@@ -31,18 +31,19 @@ View and create replies
 Replies properly attached to posts
 Posts properly attached to sections
 Timestamps all working
+Create user accounts
+Build authentication
+Add secure password
 
 
 ########## Need to do
 
-Create user accounts
-Build authentication
-Add secure password
 Edit replies so that only logged in user can reply/delete
 Add section descriptions
 Add avatar photos for user profiles
 Fix Css styling for ALL pages
 Add simple breadcrumbs at top of page so user knows where in the pages they are (ie. Cats/"thread name")
+Change "User Comments" to recent activity where it shows posts and replies, not just replies
 
 
 ########## Stretch goals

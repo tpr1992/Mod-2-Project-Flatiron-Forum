@@ -17,23 +17,42 @@
 <body>
   <br>
   <hr>
-
-  <button class="ui button">
-    <%= link_to "Users", users_path %>
-
-  </button>
-  <button class="ui button">
-    <%= link_to "Sections", sections_path %>
-  </button>
-  <button class="ui button">
-    <%= link_to "Recent Posts", posts_path %>
-  </button>
-  <button class="ui button">
-    <%= link_to "Recent Replies", replies_path %>
-  </button>
+  <header>
 
 
+    <%  if @logged_in %>
+    <h3>Logged in as <%= link_to @logged_in_user.username, user_path(@logged_in_user) %></h3>
+    <br>
+    <button class="ui button">
+      <%= link_to "logout", logout_path, method: :delete %>
+    </button>
+    <% else %>
+    <button class="ui button">
+      <%= link_to "Sign up", new_user_path %>
+    </button>
+    <button class="ui button">
+      <%= link_to "Log in", new_login_path %>
+    </button>
 
-<%= yield %>
+    <% end %>
+
+
+
+    <button class="ui button">
+      <%= link_to "Users", users_path %>
+
+    </button>
+    <button class="ui button">
+      <%= link_to "Sections", sections_path %>
+    </button>
+    <button class="ui button">
+      <%= link_to "Recent Posts", posts_path %>
+    </button>
+    <button class="ui button">
+      <%= link_to "Recent Replies", replies_path %>
+    </button>
+  </header>
+
+  <%= yield %>
 </body>
 </html>
