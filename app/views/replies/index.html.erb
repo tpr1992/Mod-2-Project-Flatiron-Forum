@@ -1,1 +1,35 @@
 <h1>Recent Replies</h1>
+
+<h3><%= link_to "New Reply", new_reply_path %></h3>
+
+
+<div class="ui threaded comments">
+  <h3 class="ui dividing header">Comments</h3>
+
+    <% @replies.each do |reply| %>
+
+    <div class="comment">
+      <a class="avatar">
+        <img src="app/assets/images/avatars/blankavatar.jpg">
+      </a>
+      <div class="content">
+        <a class="author"><%= reply.user.username %></a>
+        <div class="metadata">
+          <span class="date"> <%=reply.created_at.strftime("%I:%M%p") %></span>
+        </div>
+        <div class="metadata"> Post from:
+          <% if reply.post.name.length > 30 %>
+            <%= link_to reply.post.name[0..29] + "...", post_path(reply.post) %>
+          <% else %>
+            <%= link_to reply.post.name, post_path(reply.post) %>
+          <% end %>
+        </div>
+        <div class="text">
+          <%=reply.content %>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>
+</div>

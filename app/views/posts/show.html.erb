@@ -1,0 +1,57 @@
+<!-- <div class="post-header"> -->
+
+<h2><%= @post.name %></h2>
+
+<!-- </div> -->
+<p>Posted by <%= @post.user.username %> at <i><%= @post.created_at.strftime("%I:%M%p %m/%d/%y") %></i></p>
+<br>
+
+
+<div class="ui threaded comments">
+  <h3 class="ui dividing header">
+
+    <% @post.replies.each do |reply| %>
+
+
+    <div class="comment">
+      <!-- <a class="avatar">
+      <img src="app/assets/images/avatars/blankavatar.jpg">
+    </a> -->
+    <div class="content">
+      <a class="author"><%= reply.user.username %></a>
+      <div class="metadata">
+        <span class="date"> <%=reply.created_at.strftime("%I:%M%p") %></span>
+      </div>
+
+      <div class="text">
+        <%=reply.content %>
+      </div>
+    </div>
+  </div>
+
+
+
+  ########################
+
+
+
+  <% end %>
+  <br>
+  <hr>
+
+
+  <%= form_for @reply, html: {id: "new-reply-form"} do |f| %>
+  <%= f.label :Reply %>
+  <%= f.text_field :content %>
+  <%= f.collection_select(:post_id, Post.all, :id, :name, {:selected => @post.id}) %>
+  <%= f.collection_select(:user_id, User.all, :id, :username) %>
+
+  <%= f.submit "Submit Reply" %>
+
+  <% end %>
+
+  <%= link_to "Reply", new_reply_path %>
+
+
+
+    <%= link_to 'Remove', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,1 +1,15 @@
 <h1>Sections</h1>
+
+
+<% @sections.each do |section| %>
+<div class="main-container">
+
+<ul>
+
+  <p><%= link_to section.name, section_path(section) %></p><hr>
+
+</ul>
+</div>
+
+
+<% end %>

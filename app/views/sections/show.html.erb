@@ -1,0 +1,5 @@
+<h1><%= @section.name %></h1><br>
+
+<% @section.posts.each do |post| %>
+<p>#<%= link_to post.id, post_path(post) %> <%= link_to post.name, post_path(post) %></p><hr>
+<% end %>

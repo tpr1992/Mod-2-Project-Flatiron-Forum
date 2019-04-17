@@ -1,0 +1,16 @@
+<h1>New Post</h1>
+
+<% unless @post.errors.full_messages.empty? %>
+<%= @post.errors.full_messages %>
+<% end %>
+
+<%= form_for @post do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :content %>
+<%= f.text_field :content %>
+<%= f.collection_select(:user_id, User.all, :id, :username) %>
+<%= f.collection_select(:section_id, Section.all, :id, :name) %>
+<%= f.submit "Create Post" %>
+
+<% end %>

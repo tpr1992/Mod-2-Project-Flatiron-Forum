@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-Section.destroy_all
-Reply.destroy_all
-Post.destroy_all
+# User.destroy_all
+# Section.destroy_all
+# Reply.destroy_all
+# Post.destroy_all
 
 User.create(username: "jeng95", password_digest: "notapassword")
 User.create(username: "ludwig2018", password_digest: "password")
@@ -29,33 +29,23 @@ Section.create(name: "Flatiron School")
 Section.create(name: "ELI5")
 
 10.times do
-Post.create(name: Faker::Hacker.say_something_smart, content: Faker::Hacker.say_something_smart, user_id: 1, section_id: 2)
+Post.create(name: Faker::Hacker.say_something_smart, content: Faker::Hacker.say_something_smart, user_id: rand(1..2), section_id: rand(1..7))
 end
 
-# 10.times do
-# Post.create(name: Faker::Hacker.say_something_smart, content: Faker::Hacker.say_something_smart, user_id: 2, section_id: 2)
-# end
-#
-# 10.times do
-#   Post.create(name: Faker::Hacker.say_something_smart, content: Faker::Hipster.paragraph, user_id: rand(1..8), section_id: rand(1..7))
-# end
-
+20.times do
+Post.create(name: Faker::Hipster.sentence, content: Faker::Hipster.paragraph, user_id: rand(1..8), section_id: rand(1..7))
+end
 
 
 
 10.times do
-  Reply.create(content: Faker::Hacker.say_something_smart, post_id: rand(1..20))
+  Reply.create(content: Faker::Hipster.paragraph, post_id: rand(1..20), user_id: rand(1..8))
 end
 
 10.times do
-  Reply.create(content: Faker::Hipster.paragraph, post_id: rand(1..20))
+  Reply.create(content: Faker::Hipster.paragraph, post_id: rand(1..10), user_id: rand(1..8))
 end
 
-
-
-#
-# Reply.create(content: Faker::Hacker.say_something_smart, user_id: 1, post_id: 1)
-# Reply.create(content: Faker::Hacker.say_something_smart, user_id: 1, post_id: 1)
-# Reply.create(content: Faker::Creature::Cat.registry, user_id: 2, post_id: 1)
-# Reply.create(content: Faker::Creature::Cat.registry, user_id: 2, post_id: 2)
-# Reply.create(content: Faker::Creature::Cat.registry, user_id: 2, post_id: 2)
+10.times do
+  Reply.create(content: Faker::Hipster.paragraph, post_id: rand(10..20), user_id: rand(1..8))
+end
