@@ -1,14 +1,18 @@
 <!-- <div class="post-header"> -->
 
 <h2><%= @post.name %></h2>
+<p><%= @post.content %></p>
 
 <!-- </div> -->
-<p>Posted by <%= @post.user.username %> at <i><%= @post.created_at.strftime("%I:%M%p %m/%d/%y") %></i></p>
+<p>Posted by <%= link_to @post.user.username, user_path(@post.user) %> at <i><%= @post.created_at.strftime("%I:%M%p %m/%d/%y") %></i></p>
 <br>
 
 
 <div class="ui threaded comments">
   <h3 class="ui dividing header">
+    <h3><i class="comment icon"> </i> <%= @post.replies.count %> Comments
+    </h3>
+
 
     <% @post.replies.each do |reply| %>
 
@@ -18,7 +22,7 @@
       <img src="app/assets/images/avatars/blankavatar.jpg">
     </a> -->
     <div class="content">
-      <a class="author"><%= reply.user.username %></a>
+      <a class="author"><%= link_to reply.user.username, user_path(reply.user) %></a>
       <div class="metadata">
         <span class="date"> <%=reply.created_at.strftime("%I:%M%p") %></span>
       </div>
@@ -39,19 +43,28 @@
   <br>
   <hr>
 
-
   <%= form_for @reply, html: {id: "new-reply-form"} do |f| %>
   <%= f.label :Reply %>
+  <div class="ui input">
   <%= f.text_field :content %>
+  </div>
   <%= f.collection_select(:post_id, Post.all, :id, :name, {:selected => @post.id}) %>
   <%= f.collection_select(:user_id, User.all, :id, :username) %>
+<br>
 
-  <%= f.submit "Submit Reply" %>
-
+  <button class="ui button">
+    <% f.submit "Submit Reply" %>
+    Submit Reply
+  </button>
   <% end %>
 
-  <%= link_to "Reply", new_reply_path %>
+  <button class="ui button">
+    <%= link_to "Reply", new_reply_path %>
+  </button>
 
 
 
-    <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %>
+
+
+  <button class="ui button">
+    <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %></button>

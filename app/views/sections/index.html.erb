@@ -2,14 +2,22 @@
 
 
 <% @sections.each do |section| %>
-<div class="main-container">
+<span class="main-container">
 
-<ul>
+  <ul>
 
-  <p><%= link_to section.name, section_path(section) %></p><hr>
+    <p><%= link_to section.name, section_path(section) %></p>
 
-</ul>
-</div>
+    <div class="ui label">
+      <%= link_to "Posts", section_path(section) %>
+      <div class="detail"><%= link_to section.posts.count, section_path(section) %>
+      </div>
+    </div>
+
+    <hr>
+
+  </ul>
+</span>
 
 
 <% end %>

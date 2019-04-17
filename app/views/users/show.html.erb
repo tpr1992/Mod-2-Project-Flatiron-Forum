@@ -1,1 +1,35 @@
-<h1>Username: <%= @user.username %></h1>
+<h1 class="username-header"><%= @user.username %></h1>
+
+
+
+<div class="ui threaded comments">
+  <h3 class="ui dividing header"><i class="comment icon"></i>
+ <%= @user.username %>'s Comments</h3>
+
+    <% @user.replies.each do |reply| %>
+
+    <div class="comment">
+      <a class="avatar">
+        <img src="app/assets/images/avatars/blankavatar.jpg">
+      </a>
+      <div class="content">
+        <a class="author"><%= link_to reply.user.username, user_path(reply.user) %></a>
+        <div class="metadata">
+          <span class="date"> <%=reply.created_at.strftime("%I:%M%p") %></span>
+        </div>
+        <div class="metadata"> Post from:
+          <% if reply.post.name.length > 50 %>
+            <%= link_to reply.post.name[0..49] + "...", post_path(reply.post) %>
+          <% else %>
+            <%= link_to reply.post.name, post_path(reply.post) %>
+          <% end %>
+        </div>
+        <div class="text">
+          <%=reply.content %>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>
+</div>

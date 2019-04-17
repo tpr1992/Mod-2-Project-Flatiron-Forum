@@ -6,9 +6,14 @@
 
 <%= form_for @post do |f| %>
 <%= f.label :name %>
-<%= f.text_field :name %>
+<div class="ui input">
+  <%= f.text_field :name %>
+</div>
 <%= f.label :content %>
-<%= f.text_field :content %>
+<div class="ui input">
+  <%= f.text_field :content %>
+</div>
+
 <%= f.collection_select(:user_id, User.all, :id, :username) %>
 <%= f.collection_select(:section_id, Section.all, :id, :name) %>
 <%= f.submit "Create Post" %>

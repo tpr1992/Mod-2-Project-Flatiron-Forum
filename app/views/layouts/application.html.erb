@@ -18,12 +18,21 @@
   <br>
   <hr>
 
-  <%= link_to "Users", users_path %>
-  <%= link_to "Sections", sections_path %>
-  <%= link_to "Recent Posts", posts_path %>
-  <%= link_to "Recent Replies", replies_path %>
+  <button class="ui button">
+    <%= link_to "Users", users_path %>
 
-  
+  </button>
+  <button class="ui button">
+    <%= link_to "Sections", sections_path %>
+  </button>
+  <button class="ui button">
+    <%= link_to "Recent Posts", posts_path %>
+  </button>
+  <button class="ui button">
+    <%= link_to "Recent Replies", replies_path %>
+  </button>
+
+
 
 <%= yield %>
 </body>

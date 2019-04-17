@@ -23,6 +23,35 @@ Things you may want to cover:
 
 * ...
 
+########## Done with
+
+Basic pages showing
+View, create, and delete posts
+View and create replies
+Replies properly attached to posts
+Posts properly attached to sections
+Timestamps all working
+
+
+########## Need to do
+
+Create user accounts
+Build authentication
+Add secure password
+Edit replies so that only logged in user can reply/delete
+Add section descriptions
+Add avatar photos for user profiles
+Fix Css styling for ALL pages
+Add simple breadcrumbs at top of page so user knows where in the pages they are (ie. Cats/"thread name")
+
+
+########## Stretch goals
+
+Add private message functionality
+Add upvotes
+Add user friends
+Add favorite posts/replies section to user account
+
 
 
 ############# Code Notes
@@ -54,3 +83,17 @@ Simple math showing how many hours ago a post was last updated
   </ul>
   </span>
   </div>
+
+  ###### Alt user profile page posts
+
+
+  <br>
+  <span class="user-info">
+  <h3 class="user-posts"><%= @user.username %>'s post's:</h3>
+  <% @user.posts.each do |post| %>
+  <%= link_to post.name, post_path(post) %>
+  <br>
+  <%= post.content %>
+  <hr>
+  <% end %>
+  </span>
