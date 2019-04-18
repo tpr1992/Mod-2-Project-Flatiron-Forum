@@ -24,6 +24,7 @@
 
     <%= link_to post.name, post_path(post) %> last updated at <%= post.updated_at.localtime.strftime("%I:%M%p") %><br /><br />
 
+
     <div class="ui label">
       <%= link_to "Replies", post_path(post) %>
       <div class="detail"><%= link_to post.replies.count, post_path(post) %>

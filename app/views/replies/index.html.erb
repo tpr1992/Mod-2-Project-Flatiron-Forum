@@ -19,6 +19,7 @@
 <%= link_to reply.user.username, user_path(reply.user) %></a>
         <div class="metadata">
           <span class="date"> <%=reply.created_at.localtime.strftime("%I:%M%p") %></span>
+
         </div>
         <div class="metadata"> Post from:
           <% if reply.post.name.length > 50 %>
@@ -26,7 +27,11 @@
           <% else %>
             <%= link_to reply.post.name, post_path(reply.post) %>
           <% end %>
-        </div>
+        <% if @logged_in_user.username == reply.user.username %>
+        <%= link_to 'Delete Reply', reply, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %>
+        <% end %>
+      </div>
+
         <div class="text">
           <%=reply.content %>
         </div>

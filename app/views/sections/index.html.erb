@@ -5,22 +5,27 @@
 <span class="main-container">
   <div class="ui stacked segment">
 
-  <ul>
+    <ul>
 
-    <p><%= link_to section.name, section_path(section) %></p>
+      <p><%= link_to section.name, section_path(section) %></p>
 
-    <div class="ui label">
-      <%= link_to "Posts", section_path(section) %>
-      <div class="detail"><%= link_to section.posts.count, section_path(section) %>
-      </div>
+      <div class="ui label">
+        <%= link_to "Posts", section_path(section) %>
+        <div class="detail"><%= link_to section.posts.count, section_path(section) %>
+        </div>
         <br>
       </div>
+      <% unless section.posts.empty? %>
+      Last updated at
+      <%= section.posts.order(updated_at: :desc).first.updated_at.localtime.strftime("%I:%M%p") %>
+
+      <% end %>
     </div>
-  <!-- </ul> -->
+    <!-- </ul> -->
     <!-- <hr> -->
 
-</span>
+  </span>
 
 
-<% end %>
-<!-- </div> -->
+  <% end %>
+  <!-- </div> -->

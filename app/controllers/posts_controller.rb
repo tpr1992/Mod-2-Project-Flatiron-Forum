@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all.order(created_at: :desc)
-    # @posts.order(@post.replies.last.order: :desc)
+    @posts = Post.all.order(updated_at: :desc)
+    
+    # @posts = Reply.all.group("post_id").order(created_at: :desc)
   end
 
   def show

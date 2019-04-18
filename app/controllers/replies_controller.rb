@@ -2,6 +2,7 @@ class RepliesController < ApplicationController
 
   def index
     @replies = Reply.all.order(updated_at: :desc)
+    @posts = Post.all.order(updated_at: :desc)
   end
 
   def show
@@ -23,6 +24,15 @@ class RepliesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @reply = Reply.find(params[:id])
+    @reply.destroy
+
+    # redirect_to post_path(@reply.post_id)
+    # Use this redirect_back Reloads current page after deletion
+    redirect_back(fallback_location: root_path)
   end
 
 

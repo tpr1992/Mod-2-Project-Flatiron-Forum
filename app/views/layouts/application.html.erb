@@ -21,11 +21,33 @@
 
 
     <%  if @logged_in %>
+
+    <div class="ui secondary pointing menu">
+      <a class="item" href="/user">
+        Your Account
+      </a>
+      <a class="item" href="/users">
+        Users
+      </a>
+      <a class="item" href="/sections">
+        Sections
+      </a>
+      <a class="item" href="/posts">
+        Posts
+      </a>
+      <a class="item" href="/replies">
+        Replies
+      </a>
+      <div class="right menu">
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </div>
+    </div>
+    <div class="ui segment">
+      <p></p>
+    </div>
+
     <h3>Logged in as <%= link_to @logged_in_user.username, user_path(@logged_in_user) %></h3>
     <br>
-    <button class="ui button">
-      <%= link_to "Logout", logout_path, method: :delete %>
-    </button>
     <% else %>
     <button class="ui button">
       <%= link_to "Sign up", new_user_path %>
@@ -38,20 +60,7 @@
 
 
 
-    <button class="ui button">
-      <%= link_to "Users", users_path %>
 
-    </button>
-    <button class="ui button">
-      <%= link_to "Sections", sections_path %>
-    </button>
-    <button class="ui button">
-      <%= link_to "Recent Posts", posts_path %>
-    </button>
-    <button class="ui button">
-      <%= link_to "Recent Replies", replies_path %>
-    </button>
-  
 
   </header>
 

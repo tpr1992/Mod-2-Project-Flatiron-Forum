@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
 
   def index
-    @sections = Section.all.order(updated_at: :asc)
+    @sections = Section.all.order(updated_at: :desc)
   end
 
   def show

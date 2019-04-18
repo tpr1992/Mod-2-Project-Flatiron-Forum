@@ -41,18 +41,18 @@ Greet user by username when they visit their own profile page - DONE
 Comment counter pluralizes when more than one post - DONE
 For user profiles, if user is logged in and on their own page it shows recent activity as 'your recent activity', and if viewing others pages it says 'username's activity
 If non-logged in user tries to visit new post page it prompts them to login and try again - DONE
+Adjust icons shown next to posts and replies - DONE
+Allow users to delete their own replies - DONE
 
 
 ########## Need to do
 
 
-Allow users to delete their own replies
 Add section descriptions
 Add avatar photos for user profiles
 Fix Css styling for ALL pages
 Add simple breadcrumbs at top of page so user knows where in the pages they are (ie. Cats/"thread name")
 Change "User Comments" to recent activity where it shows posts and replies, not just replies
-Adjust icons shown next to posts and replies
 
 
 ########## Stretch goals
