@@ -1,4 +1,7 @@
+<% if @logged_in %>
+
 <h1>New Post</h1>
+
 
 <% unless @post.errors.full_messages.empty? %>
 <%= @post.errors.full_messages %>
@@ -17,5 +20,23 @@
 <%= f.collection_select(:user_id, User.all, :id, :username, {:selected => @logged_in_user.id}) %>
 <%= f.collection_select(:section_id, Section.all, :id, :name) %>
 <%= f.submit "Create Post" %>
+
+<% end %>
+<% else %>
+<h1>Sorry, you must be logged in to create a post. Please login and try again.</h1>
+
+<%= form_tag login_index_path do %>
+<ul>
+  <li>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </li>
+  <li>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </li>
+</ul>
+<%= submit_tag "Log in" %>
+<% end %>
 
 <% end %>

@@ -14,15 +14,16 @@
 
 <% @posts.each do |post| %>
 
-
-
-
 <ul>
   <p>
     <b><%= link_to post.section.name, section_path(post.section) %>
     </b> Posted by <%= link_to post.user.username, user_path(post.user) %> at <%= post.created_at.localtime.strftime("%I:%M%p") %> </p>
 
-    <%= link_to post.name, post_path(post) %> last updated at <%=  post.created_at.localtime.strftime("%I:%M%p") %><br /><br />
+    <% if post.replies.empty? %>
+    <%= link_to post.name, post_path(post) %> last updated at <%=  post.created_at.localtime.strftime("%I:%M%p") %>
+    <% else %>
+      <%= link_to post.name, post_path(post) %> last updated at <%=  post.replies.last.created_at.localtime.strftime("%I:%M%p") %><br /><br />
+    <% end %>
 
     <div class="ui label">
       <%= link_to "Replies", post_path(post) %>

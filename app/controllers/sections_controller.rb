@@ -8,4 +8,5 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     @section.posts.order(created_at: :desc)
   end
+
 end

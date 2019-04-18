@@ -35,9 +35,12 @@ Create user accounts - DONE
 Build authentication - DONE
 Add secure password - DONE
 Disable posting if user is not logged in - DONE
+Disable replying if user is not logged in - DONE
 Edit posts so that only logged in user can delete - DONE
 Greet user by username when they visit their own profile page - DONE
 Comment counter pluralizes when more than one post - DONE
+For user profiles, if user is logged in and on their own page it shows recent activity as 'your recent activity', and if viewing others pages it says 'username's activity
+If non-logged in user tries to visit new post page it prompts them to login and try again - DONE
 
 
 ########## Need to do

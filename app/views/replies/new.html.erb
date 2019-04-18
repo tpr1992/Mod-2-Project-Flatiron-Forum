@@ -1,11 +1,24 @@
+
+<% if @logged_in %>
 <h1>New Reply</h1>
+<%= form_tag replies_path do %>
+<%= label_tag :content %>
+<div class="ui input">
+  <%= text_field_tag :content %>
+  <%= hidden_field_tag :post_id, @post.id %>
+</div>
 
-<%= form_for @reply, html: {id: "new-reply-form"} do |f| %>
-<%= f.label :content %>
-<%= f.text_field :content %>
-<%= f.collection_select(:post_id, Post.all, :id, :name) %>
-<%= f.collection_select(:user_id, User.all, :id, :username) %>
+<%= submit_tag "Submit Reply" %>
+<% end %>
+<% else %>
 
-<%= f.submit "Submit Reply" %>
+<div class="lol">
+  <h1>You aren't supposed to be here</h1>
+</div>
+
+<div class="video">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2S24-y0Ij3Y?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 <% end %>

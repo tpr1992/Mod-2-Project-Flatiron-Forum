@@ -1,14 +1,23 @@
+<% if !@logged_in %>
+<h3>You must be logged-in to view user accounts.</h3>
+<% else %>
 <h1 class="username-header"><%= @user.username %></h1>
-
 <%  if @logged_in_user.username == @user.username %>
-<h2>Welcome <%= @logged_in_user.username %>!</h2>
+<h2>Welcome <%= @logged_in_user.username.capitalize %>!</h2>
 <% end %>
 
 
 
-<div class="ui threaded comments">
-  <h3 class="ui dividing header"><i class="comment icon"></i>
- <%= @user.username %>'s Comments</h3>
+    <% if @logged_in_user.username == @user.username %>
+    <div class="ui threaded comments">
+      <h3 class="ui dividing header"><i class="comment icon"></i>
+    Your Recent Activity</h3>
+    <% elsif @logged_in %>
+    <div class="ui threaded comments">
+      <h3 class="ui dividing header"><i class="comment icon"></i>
+ <%= @user.username.capitalize %>'s Recent Activity</h3>
+  <% else %>
+ <% end %>
 
     <% @user.replies.each do |reply| %>
 
@@ -35,3 +44,4 @@
 
 <% end %>
 </div>
+<% end %>

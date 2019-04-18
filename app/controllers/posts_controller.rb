@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all.order(updated_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
+    # @posts.order(@post.replies.last.order: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
-    
+
     @post.replies.order(updated_at: :desc)
     @reply = Reply.new
   end

@@ -49,7 +49,7 @@
   <% end %>
   <br>
   <hr>
-
+<% if @logged_in %>
   <%= form_tag replies_path do %>
   <%= label_tag :content %>
   <div class="ui input">
@@ -60,9 +60,10 @@
   <%= submit_tag "Submit Reply" %>
   <%end%>
 <br>
-
-
+<% end %>
+<% if @logged_in %>
 <% if @logged_in_user.username == @post.user.username %>
   <button class="ui button">
     <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %></button>
     <% end %>
+  <% end %>

@@ -1,16 +1,20 @@
 
-Please login below
+<h3>Please login below</h3>
 
 <%= form_tag login_index_path do %>
 <ul>
-  <li>
+  <!-- <li> -->
     <%= label_tag :username %>
+    <div class="ui input">
     <%= text_field_tag :username %>
-  </li>
-  <li>
+    </div>
+  <!-- </li> -->
+  <!-- <li> -->
     <%= label_tag :password %>
+    <div class="ui input">
     <%= password_field_tag :password %>
-  </li>
+    </div>
+  <!-- </li> -->
 </ul>
 <%= submit_tag "Log in" %>
 <% end %>
