@@ -24,7 +24,7 @@
     <h3>Logged in as <%= link_to @logged_in_user.username, user_path(@logged_in_user) %></h3>
     <br>
     <button class="ui button">
-      <%= link_to "logout", logout_path, method: :delete %>
+      <%= link_to "Logout", logout_path, method: :delete %>
     </button>
     <% else %>
     <button class="ui button">
@@ -51,6 +51,8 @@
     <button class="ui button">
       <%= link_to "Recent Replies", replies_path %>
     </button>
+  
+
   </header>
 
   <%= yield %>

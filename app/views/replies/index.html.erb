@@ -3,7 +3,7 @@
 
 
 <div class="ui threaded comments">
-  <h3 class="ui dividing header"><i class="comment icon"></i>
+  <h3 class="ui dividing header"><i class="comment icon"></i><%= @replies.count %>
  Comments</h3>
 
     <% @replies.each do |reply| %>
@@ -12,11 +12,13 @@
       <!-- <a class="avatar">
         <img src="app/assets/images/avatars/blankavatar.jpg">
       </a> -->
+      <div class="ui raised segment">
+
       <div class="content">
         <a class="author"><i class="user circle outline icon"></i>
 <%= link_to reply.user.username, user_path(reply.user) %></a>
         <div class="metadata">
-          <span class="date"> <%=reply.created_at.strftime("%I:%M%p") %></span>
+          <span class="date"> <%=reply.created_at.localtime.strftime("%I:%M%p") %></span>
         </div>
         <div class="metadata"> Post from:
           <% if reply.post.name.length > 50 %>

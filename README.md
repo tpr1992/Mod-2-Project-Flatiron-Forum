@@ -25,25 +25,31 @@ Things you may want to cover:
 
 ########## Done with
 
-Basic pages showing
-View, create, and delete posts
-View and create replies
-Replies properly attached to posts
-Posts properly attached to sections
-Timestamps all working
-Create user accounts
-Build authentication
-Add secure password
+Basic pages showing - DONE
+View, create, and delete posts - DONE
+View and create replies - DONE
+Replies properly attached to posts - DONE
+Posts properly attached to sections - DONE
+Timestamps all working - DONE
+Create user accounts - DONE
+Build authentication - DONE
+Add secure password - DONE
+Disable posting if user is not logged in - DONE
+Edit posts so that only logged in user can delete - DONE
+Greet user by username when they visit their own profile page - DONE
+Comment counter pluralizes when more than one post - DONE
 
 
 ########## Need to do
 
-Edit replies so that only logged in user can reply/delete
+
+Allow users to delete their own replies
 Add section descriptions
 Add avatar photos for user profiles
 Fix Css styling for ALL pages
 Add simple breadcrumbs at top of page so user knows where in the pages they are (ie. Cats/"thread name")
 Change "User Comments" to recent activity where it shows posts and replies, not just replies
+Adjust icons shown next to posts and replies
 
 
 ########## Stretch goals

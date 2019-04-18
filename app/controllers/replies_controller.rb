@@ -10,11 +10,13 @@ class RepliesController < ApplicationController
   end
 
   def new
+    # byebug
     @reply = Reply.new
   end
 
   def create
-    @reply = Reply.new(reply_params(:content, :post_id, :user_id))
+    # byebug
+    @reply = Reply.new(content: params[:content], post_id: params[:post_id], user_id: @logged_in_user.id)
     @reply.save
     if @reply.valid?
       redirect_to post_path(@reply.post_id)

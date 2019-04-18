@@ -1,5 +1,35 @@
 <h1><%= @section.name %></h1><br>
 
-<% @section.posts.each do |post| %>
-<p>#<%= link_to post.id, post_path(post) %> <%= link_to post.name, post_path(post) %></p><hr>
+<% if @logged_in %>
+<button class="ui button">
+  <h3><%= link_to "New Post", new_post_path %></h3>
+</button>
 <% end %>
+
+<div class="post">
+
+</div>
+
+
+
+<% @section.posts.each do |post| %>
+
+
+
+
+<ul>
+  <p>
+    <b><%= link_to post.section.name, section_path(post.section) %>
+    </b> Posted by <%= link_to post.user.username, user_path(post.user) %> at <%= post.created_at.localtime.strftime("%I:%M%p") %> </p>
+
+    <%= link_to post.name, post_path(post) %> last updated at <%= post.updated_at.localtime.strftime("%I:%M%p") %><br /><br />
+
+    <div class="ui label">
+      <%= link_to "Replies", post_path(post) %>
+      <div class="detail"><%= link_to post.replies.count, post_path(post) %>
+      </div>
+    </div>
+    <hr>
+  </ul>
+  <% end %>
+</div>
