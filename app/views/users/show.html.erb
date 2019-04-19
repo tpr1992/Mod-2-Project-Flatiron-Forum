@@ -3,7 +3,7 @@
 <% else %>
 <h1 class="username-header"><%= @user.username %></h1>
 <%  if @logged_in_user.username == @user.username %>
-<h2>Welcome <%= @logged_in_user.username.capitalize %>!</h2>
+<h2>Welcome, <%= @logged_in_user.username.capitalize %>!</h2>
 <% end %>
 
 

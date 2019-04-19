@@ -1,4 +1,4 @@
-<div class="ui breadcrumb">
+<!-- <div class="ui breadcrumb">
   <a class="section" href="/sections">Sections</a>
   <div class="divider"> / </div>
 
@@ -6,7 +6,8 @@
 
   <div class="divider"> / </div>
   <div class="active section"></div>
-</div>
+</div> -->
+<%= link_to "Go back", sections_path, class: "ui green basic button"  %>
 
 <h1><%= @section.name %></h1><br>
 
@@ -33,10 +34,7 @@
 
 
 
-<% @section.posts.each do |post| %>
-
-
-
+<% @ordered_posts.each do |post| %>
 
 <ul>
   <p>

@@ -1,16 +1,18 @@
-<br>
-<h3>Please log in below</h3>
-<br>
+<div class="text-center">
+  <br>
+  <h3>Please log in below</h3>
+  <br>
 
-<%= form_tag login_index_path do %>
-<ul>
-    <div class="ui input">
-    <%= text_field_tag :username, nil, placeholder: "Username" %>
-    </div>
+  <%= form_tag login_index_path do %>
+  <ul>
+      <div class="ui input">
+      <%= text_field_tag :username, nil, placeholder: "Username" %>
+      </div>
 
-    <div class="ui input">
-    <%= password_field_tag :password, nil, placeholder: "Password" %>
-    </div>
-    <%= submit_tag "Log in", class: "ui black basic button" %>
-</ul>
-<% end %>
+      <div class="ui input">
+      <%= password_field_tag :password, nil, placeholder: "Password" %>
+      </div>
+      <%= submit_tag "Log in", class: "ui black basic button" %>
+  </ul>
+  <% end %>
+</div>

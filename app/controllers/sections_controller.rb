@@ -8,7 +8,7 @@ class SectionsController < ApplicationController
   def show
     @post = Post.new
     @section = Section.find(params[:id])
-    @section.posts.order(created_at: :desc)
+    @ordered_posts = @section.posts.order(created_at: :desc)
   end
 
 end

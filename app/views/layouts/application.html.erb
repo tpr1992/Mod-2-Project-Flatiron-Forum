@@ -46,10 +46,10 @@
     </div> -->
 
 
-    <div class="ui inverted segment">
-      <div class="ui inverted secondary pointing menu">
+    <div class="ui inverted segment" style="border-radius: 0">
+      <div class="ui inverted fixed menu">
         <a class="item" href="/users/<%=session[:user_id]%>">
-          Your Account
+          <%= @logged_in_user.username.capitalize%>
         </a>
         <a class="item" href="/users">
           Users
@@ -76,8 +76,8 @@
     <!-- <h3>Logged in as <%= link_to @logged_in_user.username, user_path(@logged_in_user) %></h3> -->
     <br>
     <% else %>
-    <div class="ui inverted segment">
-      <div class="ui inverted secondary pointing menu">
+    <div class="ui inverted segment" style="border-radius: 0; margin-bottom: 20px">
+      <div class="ui inverted fixed menu">
 
     <div class="item">
       <%= link_to "Sign up", new_user_path %>
