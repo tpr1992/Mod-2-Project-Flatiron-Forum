@@ -3,6 +3,9 @@ class LoginController < ApplicationController
   def new
   end
 
+  def index
+  end
+
   def create
     @user = User.find_by(username: params[:username])
     if @user && BCrypt::Password.new(@user.password_digest) == params[:password]

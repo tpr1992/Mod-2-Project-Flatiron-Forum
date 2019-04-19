@@ -1,15 +1,24 @@
-<h1>Create Profile</h1>
+<br>
+<h3>Create Profile</h3>
+<br>
 
 
 <% unless @user.errors.full_messages.empty? %>
 <%= @user.errors.full_messages %>
 <% end %>
+<div class="ui input">
 
 <%= form_for @user do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.submit "Create Profile" %>
+<div class="ui input">
+<%= f.text_field :username, placeholder: "Username" %>
+</div>
+<div class="ui input">
+<%= f.password_field :password, placeholder: "Password" %>
+</div>
+<!-- <div class="ui basic black button"> -->
 
+<%= f.submit "Create Profile", class: "ui basic black button" %>
+
+<!-- </div> -->
 <% end %>
+</div>

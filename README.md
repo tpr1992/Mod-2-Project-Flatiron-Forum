@@ -43,12 +43,27 @@ For user profiles, if user is logged in and on their own page it shows recent ac
 If non-logged in user tries to visit new post page it prompts them to login and try again - DONE
 Adjust icons shown next to posts and replies - DONE
 Allow users to delete their own replies - DONE
+Fix timezones!!!!! - DONE
+
+######### Sorting
+
+Posts index, top of page is most recently updated OR created - DONE
+
+Posts show needs to be reversed
+
+Replies index - DONE, most recent at top
+
+Sections index - DONE, top is most recently updated
+Sections show - DONE, same as above
+
 
 
 ########## Need to do
 
 
+
 Add section descriptions
+Refine sorting algorithm
 Add avatar photos for user profiles
 Fix Css styling for ALL pages
 Add simple breadcrumbs at top of page so user knows where in the pages they are (ie. Cats/"thread name")
@@ -77,7 +92,7 @@ Simple math showing how many hours ago a post was last updated
 
 
 
-  <li><%= link_to post.name, post_path(post) %> last updated at <%= post.created_at.strftime("%X") %> hours ago</li>
+<li><%= link_to post.name, post_path(post) %> last updated at <%= post.created_at.strftime("%X") %> hours ago</li>
 
 
 
@@ -86,24 +101,24 @@ Simple math showing how many hours ago a post was last updated
 
 
 
-  <ul>
-    <div class="post-content">
-    <span>
-    <li><%= reply.content %></li><p>posted at <%= reply.updated_at.strftime("%I:%M%p") %></p>
-  </ul>
-  </span>
-  </div>
+<ul>
+<div class="post-content">
+<span>
+<li><%= reply.content %></li><p>posted at <%= reply.updated_at.strftime("%I:%M%p") %></p>
+</ul>
+</span>
+</div>
 
-  ###### Alt user profile page posts
+###### Alt user profile page posts
 
 
-  <br>
-  <span class="user-info">
-  <h3 class="user-posts"><%= @user.username %>'s post's:</h3>
-  <% @user.posts.each do |post| %>
-  <%= link_to post.name, post_path(post) %>
-  <br>
-  <%= post.content %>
-  <hr>
-  <% end %>
-  </span>
+<br>
+<span class="user-info">
+<h3 class="user-posts"><%= @user.username %>'s post's:</h3>
+<% @user.posts.each do |post| %>
+<%= link_to post.name, post_path(post) %>
+<br>
+<%= post.content %>
+<hr>
+<% end %>
+</span>

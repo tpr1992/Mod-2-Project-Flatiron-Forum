@@ -1,10 +1,11 @@
-<h1>Posts</h1>
+<h1>All Posts</h1>
 
 <% if @logged_in %>
-<button class="ui button">
-  <h3><%= link_to "New Post", new_post_path %></h3>
-</button>
+<div class="ui black basic button">
+  <%= link_to "New Post", new_post_path %>
+</div>
 <% end %>
+<br>
 
 <div class="post">
 

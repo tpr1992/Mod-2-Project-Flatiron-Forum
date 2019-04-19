@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @replies = Replies.all
     @user.replies.order(created_at: :desc)
   end
 

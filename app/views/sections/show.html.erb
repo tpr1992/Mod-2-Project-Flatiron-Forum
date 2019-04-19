@@ -1,10 +1,31 @@
+<div class="ui breadcrumb">
+  <a class="section" href="/sections">Sections</a>
+  <div class="divider"> / </div>
+
+  <span class="section">f</span>
+
+  <div class="divider"> / </div>
+  <div class="active section"></div>
+</div>
+
 <h1><%= @section.name %></h1><br>
 
-<% if @logged_in %>
-<button class="ui button">
-  <h3><%= link_to "New Post", new_post_path %></h3>
-</button>
-<% end %>
+  <p> Create a new post: </p>
+  <%= form_for @post, html: {class: "ui form post-form"} do |f| %>
+  <div class="ui input">
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+  <div class="ui input">
+    <%= f.text_field :content, placeholder: "Content" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @logged_in_user.id %>
+  <%= f.hidden_field :section_id, value: params[:id]%>
+  <%= f.submit "Create Post", class: "ui basic black button" %>
+
+  <% end %>
+
+
 
 <div class="post">
 

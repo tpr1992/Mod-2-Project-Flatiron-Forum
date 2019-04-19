@@ -17,9 +17,9 @@
   <%= f.text_field :content %>
 </div>
 
-<%= f.collection_select(:user_id, User.all, :id, :username, {:selected => @logged_in_user.id}) %>
+<%= f.hidden_field :user_id, value: @logged_in_user.id %>
 <%= f.collection_select(:section_id, Section.all, :id, :name) %>
-<%= f.submit "Create Post" %>
+<%= f.submit "Create Post", class: "ui black basic button" %>
 
 <% end %>
 <% else %>

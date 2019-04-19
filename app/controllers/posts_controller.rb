@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(updated_at: :desc)
-    
+
     # @posts = Reply.all.group("post_id").order(created_at: :desc)
   end
 
@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params(:name, :content, :user_id, :section_id))
+    # byebug
     @post.save
     if @post.valid?
       redirect_to post_path(@post)
