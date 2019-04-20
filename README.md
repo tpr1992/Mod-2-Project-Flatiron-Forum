@@ -55,6 +55,7 @@ Replies index - DONE, most recent at top
 
 Sections index - DONE, top is most recently updated
 Sections show - DONE, same as above
+Refine sorting algorithm - DONE
 
 
 
@@ -63,7 +64,6 @@ Sections show - DONE, same as above
 
 
 Add section descriptions
-Refine sorting algorithm
 Add avatar photos for user profiles
 Fix Css styling for ALL pages
 Add simple breadcrumbs at top of page so user knows where in the pages they are (ie. Cats/"thread name")
