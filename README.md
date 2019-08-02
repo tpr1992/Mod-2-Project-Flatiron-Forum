@@ -1,4 +1,4 @@
-### Forum-style Project
+### Flatiron Forum
 
 - Please run `rails s` on port 3000 to run the project. For testing purposes, you may either create a new account, or use the following credentials: 
                       Username: test
