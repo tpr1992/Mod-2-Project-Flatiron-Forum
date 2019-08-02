@@ -1,22 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ProjectVer2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>ProjectVer2</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+
+</head>
+
+<body>
+  <header>
+    <%  if @logged_in %>
+
+    <!-- <div class="ui secondary pointing menu">
+      <a class="item" href="/user">
+        Your Account
+      </a>
+      <a class="item" href="/users">
+        Users
+      </a>
+      <a class="item" href="/sections">
+        Sections
+      </a>
+      <a class="item" href="/posts">
+        Posts
+      </a>
+      <a class="item" href="/replies">
+        Replies
+      </a>
+      <a class="item" href="/login#destroy">
+        Logout
+      </a>
+      <div class="right menu">
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </div>
+    </div> -->
+
+
+    <div class="ui inverted segment" style="border-radius: 0">
+      <div class="ui inverted fixed menu">
+        <a class="item" href="/users/<%=session[:user_id]%>">
+          <%= @logged_in_user.username.capitalize%>
+        </a>
+        <a class="item" href="/users">
+          Users
+        </a>
+        <a class="item" href="/sections">
+          Sections
+        </a>
+        <a class="item" href="/posts">
+          Posts
+        </a>
+        <a class="item" href="/replies">
+          Recent Replies
+        </a>
+        <div class="right menu item">
+          <%= link_to "Logout", logout_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="ui segment">
+      <p></p>
+    </div> -->
+
+    <!-- <h3>Logged in as <%= link_to @logged_in_user.username, user_path(@logged_in_user) %></h3> -->
     <br>
-    <hr>
+    <% else %>
+    <div class="ui inverted segment" style="border-radius: 0; margin-bottom: 20px">
+      <div class="ui inverted fixed menu">
 
-    <%= link_to "Users", users_path %>
-    <%= link_to "Sections", sections_path %>
-    <%= link_to "Recent Posts", posts_path %>
+    <div class="item">
+      <%= link_to "Sign up", new_user_path %>
+    </div>
+    <div class="item">
+      <%= link_to "Log in", new_login_path %>
+    </div>
+    </div>
+    </div>
 
-    <%= yield %>
-  </body>
+    <% end %>
+
+
+
+
+
+  </header>
+  <div class="container">
+  <%= yield %>
+  </div>
+</body>
 </html>

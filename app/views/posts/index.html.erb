@@ -1,1 +1,44 @@
-<h1>Posts</h1>
+<h1>All Posts</h1>
+
+<% if @logged_in %>
+<div class="ui black basic button" style="margin-bottom: 20px;">
+  <%= link_to "New Post", new_post_path, class: "new-post-link" %>
+</div>
+<% end %>
+<br>
+
+<div class="post">
+
+</div>
+
+
+
+<% @posts.each do |post| %>
+
+<ul>
+  <p>
+    <b><%= link_to post.section.name, section_path(post.section) %>
+    </b> Posted by <%= link_to post.user.username, user_path(post.user) %> at <%= post.created_at.localtime.strftime("%I:%M%p") %>
+    <% if @logged_in_user.username == post.user.username %>
+    <span>
+      <%= link_to 'Delete Post', post, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %>
+      <i class="trash alternate outline icon"></i>
+    </span>
+    <% end %>
+</p>
+
+    <% if post.replies.empty? %>
+    <%= link_to post.name, post_path(post) %> last updated at <%=  post.created_at.localtime.strftime("%I:%M%p") %>
+    <% else %>
+    <%= link_to post.name, post_path(post) %> last updated at <%=  post.replies.last.created_at.localtime.strftime("%I:%M%p") %><br /><br />
+    <% end %>
+
+    <div class="ui label">
+      <%= link_to "Replies", post_path(post) %>
+      <div class="detail"><%= link_to post.replies.count, post_path(post) %>
+      </div>
+    </div>
+    <hr>
+  </ul>
+  <% end %>
+</div>

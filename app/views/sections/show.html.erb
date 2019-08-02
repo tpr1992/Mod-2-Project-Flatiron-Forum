@@ -1,0 +1,55 @@
+<!-- <div class="ui breadcrumb">
+  <a class="section" href="/sections">Sections</a>
+  <div class="divider"> / </div>
+
+  <span class="section">f</span>
+
+  <div class="divider"> / </div>
+  <div class="active section"></div>
+</div> -->
+<%= link_to "Go back", sections_path, class: "ui black basic button"  %>
+
+<h1><%= @section.name %></h1><br>
+
+  <p> Create a new post: </p>
+  <%= form_for @post, html: {class: "ui form post-form"} do |f| %>
+  <div class="ui input">
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+  <div class="ui input">
+    <%= f.text_field :content, placeholder: "Content" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @logged_in_user.id %>
+  <%= f.hidden_field :section_id, value: params[:id]%>
+  <%= f.submit "Create Post", class: "ui basic black button" %>
+
+  <% end %>
+
+
+
+<div class="post">
+
+</div>
+
+
+
+<% @ordered_posts.each do |post| %>
+
+<ul>
+  <p>
+    <b><%= link_to post.section.name, section_path(post.section) %>
+    </b> Posted by <%= link_to post.user.username, user_path(post.user) %> at <%= post.created_at.localtime.strftime("%I:%M%p") %> </p>
+
+    <%= link_to post.name, post_path(post) %> last updated at <%= post.updated_at.localtime.strftime("%I:%M%p") %><br /><br />
+
+
+    <div class="ui label">
+      <%= link_to "Replies", post_path(post) %>
+      <div class="detail"><%= link_to post.replies.count, post_path(post) %>
+      </div>
+    </div>
+    <hr>
+  </ul>
+  <% end %>
+</div>

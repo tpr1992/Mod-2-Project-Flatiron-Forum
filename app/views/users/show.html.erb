@@ -1,1 +1,56 @@
-<h1>Username: <%= @user.username %></h1>
+<% if !@logged_in %>
+<h3>You must be logged-in to view user accounts.</h3>
+<% else %>
+<h1 class="username-header"><%= @user.username %></h1>
+<%  if @logged_in_user.username == @user.username %>
+<h2>Welcome, <%= @logged_in_user.username.capitalize %>!</h2>
+<% end %>
+
+
+
+<% if @logged_in_user.username == @user.username %>
+<div class="ui threaded comments">
+  <h3 class="ui dividing header"><i class="comment icon"></i>
+    Your Recent Activity</h3>
+    <% elsif @logged_in %>
+    <div class="ui threaded comments">
+      <h3 class="ui dividing header"><i class="comment icon"></i>
+        <%= @user.username.capitalize %>'s Recent Activity</h3>
+        <% else %>
+        <% end %>
+
+        <% @sorted_replies.each do |reply| %>
+
+        <div class="comment">
+          <i class="user circle outline icon"></i>
+          <div class="content">
+            <a class="author"><%= link_to reply.user.username, user_path(reply.user) %></a>
+            <div class="metadata">
+              <span class="date"> <%=reply.created_at.localtime.strftime("%I:%M%p") %></span>
+            </div>
+            <div class="metadata"> Post from:
+              <% if reply.post.name.length > 50 %>
+              <%= link_to reply.post.name[0..49] + "...", post_path(reply.post) %>
+              <% else %>
+              <%= link_to reply.post.name, post_path(reply.post) %>
+              <% end %>
+              <% if @logged_in_user.username == reply.user.username %>
+              <%# Delete Reply %>
+              <span>
+                <%= link_to 'Delete Reply', reply, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %>
+                <i class="trash alternate outline icon"></i>
+              </span>
+              <% end %>
+            </div>
+            <div class="text">
+              <%=reply.content %>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <% end %>
+      </div>
+      <% end %>
