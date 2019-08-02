@@ -8,7 +8,7 @@
     <ul>
 
       <p><%= link_to section.name, section_path(section) %></p>
-
+      <p><%= section.description %></p>
       <div class="ui label">
         <%= link_to "Posts", section_path(section) %>
         <div class="detail"><%= link_to section.posts.count, section_path(section) %>

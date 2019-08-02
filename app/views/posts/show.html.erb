@@ -1,8 +1,5 @@
 <%= link_to "Go back", section_path(@post.section), class: "ui black basic button"  %>
 
-
-
-
 <h2><%= @post.name %></h2>
 
 <p><%= @post.content %></p>
@@ -10,6 +7,8 @@
 
 <!-- </div> -->
 <p>Posted by <%= link_to @post.user.username, user_path(@post.user) %> at <i><%= @post.created_at.localtime.strftime("%I:%M%p %m/%d/%y") %></i></p>
+<i><%= link_to @post.section.name, section_path(@post.section.id) %></i>
+<br>
 <% if @logged_in_user.username == @post.user.username %>
 <%# Delete Reply %>
 <span>

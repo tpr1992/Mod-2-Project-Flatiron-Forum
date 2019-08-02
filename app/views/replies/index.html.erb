@@ -20,6 +20,8 @@
           <div class="metadata">
             <span class="date"> <%=reply.created_at.localtime.strftime("%I:%M%p") %></span>
 
+            <%= link_to reply.post.section.name, section_path(reply.post.section.id) %>
+
           </div>
           <div class="metadata"> Post from:
             <% if reply.post.name.length > 50 %>

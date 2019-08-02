@@ -5,5 +5,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :username
   validates :username, presence: true
-  validates :password_digest, presence: true
-end
+  # validates :password_digest, presence: true
+  validates :password, :presence => true,
+    :length => {:within => 6..40}
+  end
