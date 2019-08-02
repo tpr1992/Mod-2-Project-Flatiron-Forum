@@ -1,24 +1,13 @@
-# README
+### Forum-style Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Please run `rails s` on port 3000 to run the project. For testing purposes, you may either create a new account, or use the following credentials: 
+                      Username: test
+                      Password: 123456
 
-Things you may want to cover:
+- This is my mod 2 project from Flatiron School. It is built entirely in Rails and is inspired by Reddit and other forum style platforms.
 
-* Ruby version
+- Sessions are used to authenticate users.
 
-* System dependencies
+- Users can view the profiles of others, as well as their recent activity. Recent activity includes the posting of topics, replies, or comments. Using a rails algorithm, all topics/replies/comments are properly sorted and organized.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is still somewhat of a work in progress and the styling is not yet set in stone. Please let me know if you have any further suggestions or would like to contribute. Thank you!
