@@ -1,8 +1,6 @@
 ### Flatiron Forum
 
-- Please run `rails s` on port 3000 to run the project. For testing purposes, you may either create a new account, or use the following credentials: 
-                      Username: test
-                      Password: 123456
+- Please run `rails s` on port 3000 to run the project. For testing purposes, you may either create a new account, or use the following credentials: Username: `test`, Password: `123456`
 
 - This is my mod 2 project from Flatiron School. It is built entirely in Rails and is inspired by Reddit and other forum style platforms.
 
