@@ -1,14 +1,16 @@
-<%= link_to "Go back", section_path(@post.section), class: "ui black basic button"  %>
+<%= link_to "Go back", section_path(@post.section), class: "ui black basic button" %>
 
 <h2><%= @post.name %></h2>
 <p><%= @post.content %></p>
 
-<!-- </div> -->
-<p>Posted by <%= link_to @post.user.username, user_path(@post.user) %> at <i><%= @post.created_at.localtime.strftime("%I:%M%p %m/%d/%y") %></i></p>
+<p>Posted by
+  <%= link_to @post.user.username, user_path(@post.user) %>
+  at
+  <i><%= @post.created_at.localtime.strftime("%I:%M%p %m/%d/%y") %></i>
+</p>
 <i><%= link_to @post.section.name, section_path(@post.section.id) %></i>
 <br>
 <% if @logged_in_user.username == @post.user.username %>
-<%# Delete Reply %>
 <span>
   <%= link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %>
   <i class="trash alternate outline icon"></i>
@@ -18,11 +20,14 @@
 
 <div class="ui threaded comments">
   <h3 class="ui dividing header">
-    <h3><i class="comment icon"> </i>
+    <h3>
+      <i class="comment icon"></i>
       <% if @post.replies.count > 1 %>
-      <%= @post.replies.count %> Comments
+      <%= @post.replies.count %>
+      Comments
       <% else %>
-      <%= @post.replies.count %> Comment
+      <%= @post.replies.count %>
+      Comment
       <% end %>
     </h3>
 
@@ -34,34 +39,34 @@
         <div class="content">
           <a class="author"><%= link_to reply.user.username, user_path(reply.user) %></a>
           <div class="metadata">
-            <span class="date"> <%=reply.created_at.localtime.strftime("%I:%M%p") %></span>
-            <% if @logged_in_user.username == reply.user.username %>
-            <%# Delete Reply %>
-            <span>
-              <%= link_to 'Delete Reply', reply, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %>
-              <i class="trash alternate outline icon"></i>
-            </span>
-            <% end %>
-          </div>
+            <span class="date">
+              <%= reply.created_at.localtime.strftime("%I:%M%p") %></span>
+              <% if @logged_in_user.username == reply.user.username %>
+              <span>
+                <%= link_to 'Delete Reply', reply, method: :delete, data: { confirm: 'Are you Really sure you want to delete your post? There is no going back.' } %>
+                <i class="trash alternate outline icon"></i>
+              </span>
+              <% end %>
+            </div>
 
-          <div class="text">
-            <%=reply.content %>
+            <div class="text">
+              <%= reply.content %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <% end %>
-    <br>
-    <hr>
-    <% if @logged_in %>
-    <%= form_tag replies_path do %>
-    <div class="ui input">
-      <%= text_field_tag :content, nil, placeholder: "Content" %>
-      <%= hidden_field_tag :post_id, @post.id %>
-    </div>
+      <% end %>
+      <br>
+      <hr>
+      <% if @logged_in %>
+      <%= form_tag replies_path do %>
+      <div class="ui input">
+        <%= text_field_tag :content, nil, placeholder: "Content" %>
+        <%= hidden_field_tag :post_id, @post.id %>
+      </div>
 
-    <%= submit_tag "Submit Reply", class: "ui black basic button" %>
-    <%end%>
-    <br>
-    <% end %>
+      <%= submit_tag "Submit Reply", class: "ui black basic button" %>
+      <% end %>
+      <br>
+      <% end %>
